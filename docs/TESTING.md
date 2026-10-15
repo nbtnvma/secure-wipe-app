@@ -1,4 +1,4 @@
-# SecureWipe v2 — Checklist kiểm thử thủ công
+# SecureWipe v1 — Checklist kiểm thử thủ công
 
 > Chạy trên **máy ảo hoặc máy thử**, không phải máy làm việc chính, với các mục có đánh dấu ⚠ (xóa thật).
 > Ghi kết quả: ✅ đạt · ❌ lỗi (ghi chú) · ➖ không áp dụng.
