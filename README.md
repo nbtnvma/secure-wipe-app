@@ -68,6 +68,6 @@ xattr -dr com.apple.quarantine /path/to/SecureWipe.app
 
 ## Kiểm thử
 
-Xem [docs/TESTING.md](docs/TESTING.md) cho checklist kiểm thử thủ công trên từng nền tảng, và [docs/PLAN.md](docs/PLAN.md) cho kế hoạch & tiến độ.
+Xem [docs/TESTING.md](docs/TESTING.md) cho checklist kiểm thử thủ công trên từng nền tảng.
 
 © 2026 NVMA Team — https://nvma.site
