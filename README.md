@@ -1,8 +1,8 @@
 # SecureWipe 1.0
 
-Portable system cleaner, uninstaller and secure data eraser for **Windows, macOS and Linux** — by NVMA Team.
+Công cụ di động giúp dọn dẹp hệ thống, gỡ cài đặt phần mềm và xóa dữ liệu an toàn dành cho **Windows, macOS và Linux** — phát triển bởi NVMA.
 
-No installation, no background service, no administrator rights unless a specific task needs them.
+Không cần cài đặt, không chạy dịch vụ ngầm, không yêu cầu quyền quản trị viên (trừ khi một tác vụ cụ thể đòi hỏi quyền này).
 
 ## Tính năng
 
@@ -65,24 +65,6 @@ Bản macOS chưa được ký/notarize. Lần đầu mở: chuột phải vào 
 ```bash
 xattr -dr com.apple.quarantine /path/to/SecureWipe.app
 ```
-
-## Trạng thái dịch vụ & cập nhật
-
-Mỗi lần mở và mỗi tuần một lần, app đọc `https://nvma.site/securewipe.json` (một yêu cầu GET, không gửi dữ liệu người dùng):
-
-```json
-{
-  "status": "active",
-  "message": { "vi": "…", "en": "…" },
-  "latest": { "version": "1.0.0" }
-}
-```
-
-- `status`: `active` / `deactive` (không phân biệt hoa thường). `deactive` → app khóa và hiện **Out of Service** sau khi tác vụ đang chạy hoàn tất; giá trị khác (gõ sai) được bỏ qua, không khóa.
-- Không xác minh được quá **60 ngày** (mất mạng, file lỗi) → khóa cho tới khi kiểm tra lại thành công.
-- Khi bị khóa vẫn khôi phục được tệp trong khu cách ly.
-- `latest.version` lớn hơn bản đang chạy → hiện thông báo cập nhật (link tới nvma.site). Các trường khác app bỏ qua.
-- Cấu hình: `src/main/config/release.ts`.
 
 ## Kiểm thử
 
