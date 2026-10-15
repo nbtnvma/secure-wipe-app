@@ -66,4 +66,4 @@ publish:
   provider: github
   owner: nbtnvma
   repo: secure-wipe-app
-  releaseType: published
+  releaseType: release
