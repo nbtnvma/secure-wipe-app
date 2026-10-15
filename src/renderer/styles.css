@@ -1,0 +1,262 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #f2f5fa;
+  --surface-3: #e9eef6;
+  --border: #e1e7f0;
+  --border-strong: #cdd6e3;
+  --text: #0f172a;
+  --text-2: #334155;
+  --muted: #64748b;
+  --primary: #2563eb;
+  --primary-2: #4f46e5;
+  --primary-soft: #e8efff;
+  --primary-fg: #ffffff;
+  --success: #16a34a;
+  --success-soft: #e7f7ed;
+  --warning: #d97706;
+  --warning-soft: #fdf3e2;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+  --info: #0891b2;
+  --info-soft: #e3f6fa;
+  --sidebar: #ffffff;
+  --sidebar-2: #ffffff;
+  --sidebar-text: #334155;
+  --sidebar-strong: #0f172a;
+  --sidebar-hover: #f2f7fd;
+  --sidebar-active: #d4e8fc;
+  --sidebar-track: #e6ecf3;
+  --sidebar-border: #e6ebf2;
+  --content-from: #f8fbff;
+  --content-to: #e7f1fc;
+  --ring: rgba(37, 99, 235, 0.35);
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.18);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0a0f1c;
+  --surface: #111827;
+  --surface-2: #161f32;
+  --surface-3: #1d2840;
+  --border: #222d44;
+  --border-strong: #2f3c58;
+  --text: #e7ecf5;
+  --text-2: #c3cddd;
+  --muted: #8a97ae;
+  --primary: #3b82f6;
+  --primary-2: #6366f1;
+  --primary-soft: rgba(59, 130, 246, 0.16);
+  --success: #22c55e;
+  --success-soft: rgba(34, 197, 94, 0.14);
+  --warning: #f59e0b;
+  --warning-soft: rgba(245, 158, 11, 0.14);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.14);
+  --info: #22d3ee;
+  --info-soft: rgba(34, 211, 238, 0.12);
+  --sidebar: #0d1424;
+  --sidebar-2: #0d1424;
+  --sidebar-text: #aab6cc;
+  --sidebar-strong: #eef2f8;
+  --sidebar-hover: rgba(148, 163, 184, 0.08);
+  --sidebar-active: rgba(59, 130, 246, 0.2);
+  --sidebar-track: rgba(148, 163, 184, 0.16);
+  --sidebar-border: #1c263b;
+  --content-from: #0b1120;
+  --content-to: #0e1a2e;
+  --ring: rgba(59, 130, 246, 0.45);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-fg: var(--text);
+  --color-fg-2: var(--text-2);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-2: var(--primary-2);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-fg: var(--primary-fg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-2: var(--sidebar-2);
+  --color-sidebar-text: var(--sidebar-text);
+  --color-sidebar-strong: var(--sidebar-strong);
+  --shadow-card: var(--shadow);
+  --shadow-pop: var(--shadow-lg);
+  --font-sans: 'Segoe UI Variable Text', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', 'Ubuntu', 'Cantarell', 'Noto Sans', sans-serif;
+  --font-mono: 'Cascadia Mono', 'SF Mono', Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+input,
+textarea,
+.selectable {
+  user-select: text;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 0;
+}
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@keyframes sw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sw-pulse-ring {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+@keyframes sw-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes sw-indeterminate {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+.animate-fade-in {
+  animation: sw-fade-in 0.22s ease-out;
+}
+.spin-slow {
+  animation: sw-spin 2.4s linear infinite;
+}
+.pulse-ring {
+  animation: sw-pulse-ring 1.8s ease-out infinite;
+}
+
+.bar-indeterminate {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--primary);
+  border-radius: inherit;
+  animation: sw-indeterminate 1.6s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.hero-gradient {
+  background: radial-gradient(120% 140% at 0% 0%, color-mix(in oklab, var(--primary) 22%, transparent) 0%, transparent 55%),
+    radial-gradient(120% 140% at 100% 100%, color-mix(in oklab, var(--primary-2) 20%, transparent) 0%, transparent 60%), var(--surface);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.content-gradient {
+  background: linear-gradient(160deg, var(--content-from) 0%, var(--content-to) 100%);
+}
+
+.font-display {
+  font-family: 'Segoe UI Variable Display', 'Segoe UI Light', 'Segoe UI', -apple-system, 'SF Pro Display', 'Helvetica Neue', 'Ubuntu', sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+@keyframes sw-wipe {
+  0%,
+  100% {
+    transform: rotate(-36deg);
+  }
+  50% {
+    transform: rotate(36deg);
+  }
+}
+.wiper-arm {
+  transform-origin: 200px 52px;
+  animation: sw-wipe 3.2s ease-in-out infinite;
+}
+.wiper-arm.idle {
+  animation: none;
+  transform: rotate(-36deg);
+}

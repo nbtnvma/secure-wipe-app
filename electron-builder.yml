@@ -1,0 +1,69 @@
+# Single packaging config for all platforms. Portable builds only (no installers).
+appId: site.nvma.securewipe
+productName: SecureWipe
+copyright: Copyright © 2026 NVMA Team
+directories:
+  output: release/${version}
+  buildResources: assets
+
+# Everything is bundled by esbuild/Vite into dist/, so node_modules is not shipped.
+files:
+  - dist/**/*
+  - package.json
+  - '!**/*.map'
+extraResources:
+  - from: assets
+    to: assets
+    filter:
+      - logo.png
+      - logo.ico
+asar: true
+compression: normal
+npmRebuild: false
+nodeGypRebuild: false
+electronLanguages: [en-US, vi]
+
+win:
+  icon: assets/logo.ico
+  # The app never runs elevated as a whole; tasks ask for UAC individually.
+  requestedExecutionLevel: asInvoker
+  target:
+    - target: portable
+      arch: [x64, arm64]
+    - target: zip
+      arch: [x64, arm64]
+  artifactName: ${productName}-${version}-win-${arch}.${ext}
+portable:
+  artifactName: ${productName}-${version}-Portable-${arch}.exe
+  requestExecutionLevel: user
+
+mac:
+  icon: assets/logo.png
+  category: public.app-category.utilities
+  # No Apple Developer ID yet: ship an unsigned zip (users open it with right-click → Open).
+  # No Apple Developer ID yet: ad-hoc signature (required on Apple Silicon); users open it with right-click → Open.
+  identity: '-'
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  target:
+    - target: zip
+      arch: [x64, arm64]
+  artifactName: ${productName}-${version}-mac-${arch}.${ext}
+
+linux:
+  icon: assets/logo.png
+  category: Utility
+  synopsis: Portable system cleaner and secure data eraser
+  description: SecureWipe cleans junk, removes applications with their leftovers, manages startup items and securely erases files and free space.
+  target:
+    - target: AppImage
+      arch: [x64, arm64]
+    - target: tar.gz
+      arch: [x64, arm64]
+  artifactName: ${productName}-${version}-linux-${arch}.${ext}
+
+publish:
+  provider: github
+  owner: nbtnvma
+  repo: secure-wipe-app
+  releaseType: published
