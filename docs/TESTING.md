@@ -105,28 +105,7 @@ npm run typecheck && npm test && node scripts/check-i18n.mjs && npm run build
 | 9.2 | "Đọc SMART chi tiết" 🛡 → nhiệt độ/hao mòn/giờ hoạt động (Linux cần smartmontools) | | ➖ | |
 | 9.3 | Restore point: tải danh sách 🛡, tạo mới, xóa | | | ➖ |
 
-## 10. Lịch sử & cập nhật
-
-| # | Kiểm tra | Win | macOS | Linux |
-|---|---|---|---|---|
-| 10.1 | Mọi thao tác xuất hiện trong Lịch sử với số mục/dung lượng thật | | | |
-| 10.2 | Xuất CSV mở được bằng Excel (UTF-8) | | | |
-| 10.3 | Khu cách ly hết hạn tự xóa khi mở app sau N ngày | | | |
-| 10.4 | Kiểm tra cập nhật: không có mạng → báo lỗi nhẹ nhàng; có bản mới → hiện ở trang Giới thiệu | | | |
-
-## 11. Trạng thái dịch vụ (nvma.site/securewipe.json)
-
-| # | Kiểm tra | Win | macOS | Linux |
-|---|---|---|---|---|
-| 11.1 | `status: "Active"` → app chạy bình thường | | | |
-| 11.2 | Đổi `latest.version` lên `1.0.1` → mở lại app thấy nút "Cập nhật 1.0.1"; Tùy chọn tắt "Thông báo khi có bản mới" → nút biến mất | | | |
-| 11.3 | `status: "Deactive"` → mở lại app hiện **Out of Service** với nội dung `message`; nút Thử lại sau khi đổi về Active thì mở khóa | | | |
-| 11.4 | Đổi sang Deactive khi đang quét/hủy tệp → tác vụ chạy xong mới khóa; không bắt đầu được tác vụ mới | | | |
-| 11.5 | Khi bị khóa: khôi phục được tệp trong khu cách ly | | | |
-| 11.6 | `status: "actve"` (gõ sai) → app không khóa | | | |
-| 11.7 | Tắt mạng → app vẫn chạy (trong hạn 60 ngày) | | | |
-
-## 12. Ngủ đông (Windows)
+## 10. Ngủ đông (Windows)
 
 | # | Kiểm tra | Win |
 |---|---|---|
@@ -134,3 +113,12 @@ npm run typecheck && npm test && node scripts/check-i18n.mjs && npm run build
 | 12.2 | ⚠ Thu gọn → hỏi UAC, dung lượng giảm, Khởi động nhanh vẫn bật | |
 | 12.3 | ⚠ Tắt → cảnh báo, hiberfil.sys bị xóa, dung lượng được cộng vào "đã giải phóng" | |
 | 12.4 | ⚠ Bật lại (đầy đủ) → hiberfil.sys xuất hiện lại | |
+
+## 11. Lịch sử & cập nhật
+
+| # | Kiểm tra | Win | macOS | Linux |
+|---|---|---|---|---|
+| 10.1 | Mọi thao tác xuất hiện trong Lịch sử với số mục/dung lượng thật | | | |
+| 10.2 | Xuất CSV mở được bằng Excel (UTF-8) | | | |
+| 10.3 | Khu cách ly hết hạn tự xóa khi mở app sau N ngày | | | |
+| 10.4 | Kiểm tra cập nhật: không có mạng → báo lỗi nhẹ nhàng; có bản mới → hiện ở trang Giới thiệu | | | 
